@@ -1,0 +1,25 @@
+{
+  "fmt": {
+    "exclude": [
+      ".cache",
+      ".github",
+      ".vscode",
+      ".gitignore",
+      "deno.json",
+      "lock.json",
+      "README.md"
+    ]
+  },
+  "lint": {
+    "exclude": [
+      ".cache"
+    ]
+  },
+  "tasks": {
+    "cache": "deno cache --lock-write deps.ts",
+    "cache-reload": "deno cache --reload deps.ts",
+    "start": "deno run main.ts",
+    "start-cached-only": "deno run --cached-only main.ts",
+    "test": "deno test -A"
+  }
+}
