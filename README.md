@@ -1,3 +1,2 @@
-# proto-deno
+# deno-robot
 
-A template repository for projects in 🦕 [Deno](https://deno.land/).
