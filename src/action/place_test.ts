@@ -108,12 +108,12 @@ Deno.test("place inside the plain returns new state", () => {
     },
   ];
 
-  for (const t of testCases) {
-    const actual = place({ plane, ...t.props });
+  for (const { props, expected } of testCases) {
+    const actual = place({ plane, ...props });
     assert.assertEquals(
       actual,
-      t.expected,
-      `failed place(${JSON.stringify(t.props)}`,
+      expected,
+      `failed place(${JSON.stringify(props)}`,
     );
   }
 });

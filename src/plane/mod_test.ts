@@ -39,12 +39,12 @@ Deno.test("isOnPlane", () => {
     },
   ];
 
-  for (const t of testCases) {
-    const actual = isOnPlane(t.props);
+  for (const { props, expected } of testCases) {
+    const actual = isOnPlane(props);
     assert.assertEquals(
       actual,
-      t.expected,
-      `failed isOnPlane(${JSON.stringify(t.props)}`,
+      expected,
+      `failed isOnPlane(${JSON.stringify(props)}`,
     );
   }
 });

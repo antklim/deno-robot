@@ -41,11 +41,11 @@ Deno.test("move on the plane returns a new state", () => {
     },
   ];
 
-  for (const t of testCases) {
+  for (const { state, expected } of testCases) {
     assert.assertEquals(
-      move({ plane, state: t.state }),
-      t.expected,
-      `failed move(${JSON.stringify(t)}`,
+      move({ plane, state }),
+      expected,
+      `failed move(${JSON.stringify(state)}`,
     );
   }
 });

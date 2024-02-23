@@ -3,7 +3,9 @@ export interface Position {
   y: number;
 }
 
-export type Direction = "NORTH" | "SOUTH" | "WEST" | "EAST";
+export const directions = ["NORTH", "EAST", "SOUTH", "WEST"] as const;
+
+export type Direction = typeof directions[number];
 
 export interface State {
   pos: Position;
