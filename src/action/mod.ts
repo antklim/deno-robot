@@ -2,6 +2,8 @@ import { move, MoveProps } from "./move.ts";
 import { place, PlaceProps } from "./place.ts";
 import { turn, TurnProps } from "./turn.ts";
 
+export { type TurnDirection } from "./turn.ts";
+
 export type Action =
   | {
     type: "PLACE";

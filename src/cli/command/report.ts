@@ -1,4 +1,4 @@
-import { get, isPlaced } from "../../robot-state/mod.ts";
+import { get, isPlaced } from "../../game/mod.ts";
 
 const run = () => {
   if (isPlaced()) {

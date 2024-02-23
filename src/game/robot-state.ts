@@ -2,7 +2,11 @@ import { State } from "../state/mod.ts";
 
 let state: State | null = null;
 
-export function set({ pos, dir }: State) {
+export function set(s?: State) {
+  if (s == null) return;
+
+  const { pos, dir } = s;
+
   state = { pos: { ...pos }, dir };
 }
 
