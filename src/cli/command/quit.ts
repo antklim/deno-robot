@@ -1,5 +1,5 @@
 const run = () => {
-  console.log("🤖 - Goodbye!");
+  console.log("\n🤖 - Goodbye!");
   Deno.exit(0);
 };
 

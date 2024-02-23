@@ -1,22 +1,23 @@
 import { usage } from "./command/help.ts";
-import help from "./command/help.ts";
-import quit from "./command/quit.ts";
+import { Command, commands } from "./command/mod.ts";
 
 export function run() {
   console.log(
-    "🤖 - Greetings stranger! Let's play a game! Here is a list of commands I understand:",
+    "🤖 - Greetings player! Let's play a game! Here is a list of commands I understand:",
   );
   console.log(usage);
 
   while (true) {
-    const command = prompt("Please enter your command or 'quit' to exit:");
+    const input = prompt("Please enter your command or 'quit' to exit:");
 
-    if (command === "quit") {
-      quit.run();
-    }
+    if (input == null) continue;
 
-    if (command === "help") {
-      help.run();
+    const [name, args] = input.split(" ");
+
+    commands.get(name as Command)?.run(args);
+
+    if (!commands.has(name as Command)) {
+      console.log(`🤖 - I don't understand: ${name}`);
     }
   }
 }
