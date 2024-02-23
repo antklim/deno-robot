@@ -1,5 +1,5 @@
 import { assert } from "../../deps.ts";
-import { RobotState } from "../game/mod.ts";
+import { RobotState } from "../robot/mod.ts";
 import { turn } from "./turn.ts";
 
 Deno.test("turns left", () => {

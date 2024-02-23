@@ -1,4 +1,4 @@
-import { RobotState } from "../game/mod.ts";
+import { RobotState } from "../robot/mod.ts";
 import { directions } from "../world/mod.ts";
 
 export type TurnDirection = "LEFT" | "RIGHT";

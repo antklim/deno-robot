@@ -1,5 +1,5 @@
 import { assert } from "../../deps.ts";
-import { RobotState } from "../game/mod.ts";
+import { RobotState } from "../robot/mod.ts";
 import { move } from "./move.ts";
 
 const plane = { x: 5, y: 5 };

@@ -1,5 +1,5 @@
 import { isOnPlane, Plane, Position } from "../world/mod.ts";
-import { RobotState } from "../game/mod.ts";
+import { RobotState } from "../robot/mod.ts";
 
 const newPosition = ({ pos: { x, y }, dir }: RobotState): Position => {
   switch (dir) {

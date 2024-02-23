@@ -1,4 +1,4 @@
-import { RobotState, set } from "../../game/mod.ts";
+import { RobotState, set } from "../../robot/mod.ts";
 import { Direction, directions, planeX, planeY } from "../../world/mod.ts";
 import { action } from "../../action/mod.ts";
 
