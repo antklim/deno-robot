@@ -1,6 +1,29 @@
+import { Options, parseArgs } from "./args/mod.ts";
 import { Command, commands, usage } from "./command/mod.ts";
 
-export function run() {
+export async function run() {
+  const opts: Options = parseArgs(Deno.args);
+
+  if (opts.help) {
+    console.log(
+      "🤖 - run me without flags to enter interactive mode or add -f commands.txt to run commands from file",
+    );
+    Deno.exit(0);
+  }
+
+  if (opts.file != null) {
+    const file = await Deno.readTextFile(opts.file);
+    const lines = file.split("\n");
+
+    for (const line of lines) {
+      const [rawName, args] = line.split(" ");
+      const name = rawName.toLowerCase();
+      commands.get(name as Command)?.run(args);
+    }
+
+    Deno.exit(0);
+  }
+
   console.log(
     "🤖 - Greetings player! Let's play a game! Here is a list of commands I understand:",
   );
@@ -11,7 +34,8 @@ export function run() {
 
     if (input == null) continue;
 
-    const [name, args] = input.split(" ");
+    const [rawName, args] = input.split(" ");
+    const name = rawName.toLowerCase();
 
     commands.get(name as Command)?.run(args);
 

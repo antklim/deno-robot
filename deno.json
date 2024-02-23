@@ -16,10 +16,7 @@
     ]
   },
   "tasks": {
-    "cache": "deno cache --lock-write deps.ts",
-    "cache-reload": "deno cache --reload deps.ts",
-    "start": "deno run main.ts",
-    "start-cached-only": "deno run --cached-only main.ts",
+    "start": "deno run --allow-read main.ts",
     "test": "deno test -A"
   }
 }
