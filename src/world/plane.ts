@@ -1,5 +1,8 @@
 import { Position } from "./Position.ts";
 
+export const planeX = 5;
+export const planeY = 5;
+
 export interface Plane {
   x: number;
   y: number;
