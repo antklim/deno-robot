@@ -9,8 +9,3 @@ export interface State {
   pos: Position;
   dir: Direction;
 }
-
-export interface Plane {
-  x: number;
-  y: number;
-}

@@ -1,7 +1,5 @@
-import { Direction, Plane, Position, State } from "../state/mod.ts";
-
-const isOutsidePlane = ({ plane, pos }: { plane: Plane; pos: Position }) =>
-  pos.x < 0 || pos.x > plane.x || pos.y < 0 || pos.y > plane.y;
+import { isOnPlane, Plane } from "../plane/mod.ts";
+import { Direction, Position, State } from "../state/mod.ts";
 
 export interface PlaceProps {
   plane: Plane;
@@ -12,4 +10,4 @@ export interface PlaceProps {
 export type Place = (props: PlaceProps) => State | undefined;
 
 export const place: Place = ({ plane, pos, dir }) =>
-  isOutsidePlane({ plane, pos }) ? undefined : { pos, dir };
+  isOnPlane({ plane, pos }) ? { pos, dir } : undefined;
