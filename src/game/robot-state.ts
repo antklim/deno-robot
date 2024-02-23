@@ -1,8 +1,13 @@
-import { State } from "../state/mod.ts";
+import { Direction, Position } from "../world/mod.ts";
 
-let state: State | null = null;
+export interface RobotState {
+  pos: Position;
+  dir: Direction;
+}
 
-export function set(s?: State) {
+let state: RobotState | null = null;
+
+export function set(s?: RobotState) {
   if (s == null) return;
 
   const { pos, dir } = s;
@@ -10,7 +15,7 @@ export function set(s?: State) {
   state = { pos: { ...pos }, dir };
 }
 
-export function get(): State | null {
+export function get(): RobotState | null {
   if (state == null) return null;
 
   return { pos: { ...state.pos }, dir: state.dir };

@@ -1,7 +1,7 @@
 import { isOnPlane, Plane, Position } from "../world/mod.ts";
-import { State } from "../state/mod.ts";
+import { RobotState } from "../game/mod.ts";
 
-const newPosition = ({ pos: { x, y }, dir }: State): Position => {
+const newPosition = ({ pos: { x, y }, dir }: RobotState): Position => {
   switch (dir) {
     case "NORTH":
       return { x, y: y + 1 };
@@ -16,7 +16,7 @@ const newPosition = ({ pos: { x, y }, dir }: State): Position => {
 
 export interface MoveProps {
   plane: Plane;
-  state: State;
+  state: RobotState;
 }
 
 export function move({ plane, state }: MoveProps) {

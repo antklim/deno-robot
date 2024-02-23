@@ -1,11 +1,11 @@
 import { planeX, planeY, set } from "../../game/mod.ts";
 import { Direction, directions } from "../../world/mod.ts";
-import { State } from "../../state/mod.ts";
+import { RobotState } from "../../game/mod.ts";
 import { action } from "../../action/mod.ts";
 
 const validate = (
   args: string,
-): State | Error => {
+): RobotState | Error => {
   const [xS, yS, direction] = args.split(",");
 
   const x = parseInt(xS);

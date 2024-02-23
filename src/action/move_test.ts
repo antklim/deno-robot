@@ -1,11 +1,11 @@
 import { assert } from "../../deps.ts";
-import { State } from "../state/mod.ts";
+import { RobotState } from "../game/mod.ts";
 import { move } from "./move.ts";
 
 const plane = { x: 5, y: 5 };
 
 Deno.test("move off the plane returns undefined", () => {
-  const testCases: State[] = [
+  const testCases: RobotState[] = [
     { pos: { x: 0, y: 0 }, dir: "WEST" },
     { pos: { x: 0, y: 0 }, dir: "SOUTH" },
     { pos: { x: 5, y: 5 }, dir: "EAST" },
@@ -22,7 +22,7 @@ Deno.test("move off the plane returns undefined", () => {
 });
 
 Deno.test("move on the plane returns a new state", () => {
-  const testCases: { state: State; expected: State }[] = [
+  const testCases: { state: RobotState; expected: RobotState }[] = [
     {
       state: { pos: { x: 0, y: 0 }, dir: "EAST" },
       expected: { pos: { x: 1, y: 0 }, dir: "EAST" },

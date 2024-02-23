@@ -1,5 +1,5 @@
 import { assert } from "../../deps.ts";
-import { State } from "../state/mod.ts";
+import { RobotState } from "../game/mod.ts";
 import { PlaceProps } from "./place.ts";
 import { place } from "./place.ts";
 
@@ -27,7 +27,7 @@ Deno.test("place inside the plain returns new state", () => {
   // TODO: replace with the fuzzy testing
   const testCases: {
     props: Pick<PlaceProps, "dir" | "pos">;
-    expected: State;
+    expected: RobotState;
   }[] = [
     {
       props: { pos: { x: 0, y: 0 }, dir: "NORTH" },

@@ -1,14 +1,14 @@
-import { State } from "../state/mod.ts";
+import { RobotState } from "../game/mod.ts";
 import { directions } from "../world/mod.ts";
 
 export type TurnDirection = "LEFT" | "RIGHT";
 
 export interface TurnProps {
   dir: TurnDirection;
-  state: State;
+  state: RobotState;
 }
 
-export function turn({ dir, state }: TurnProps): State {
+export function turn({ dir, state }: TurnProps): RobotState {
   let dirIdx = directions.indexOf(state.dir);
   dirIdx = dir === "LEFT" ? dirIdx - 1 : dirIdx + 1;
 
