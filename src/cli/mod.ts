@@ -1,5 +1,4 @@
-import { usage } from "./command/help.ts";
-import { Command, commands } from "./command/mod.ts";
+import { Command, commands, usage } from "./command/mod.ts";
 
 export function run() {
   console.log(
