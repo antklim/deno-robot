@@ -1,5 +1,5 @@
 import { isOnPlane, Plane } from "../plane/mod.ts";
-import { Direction, Position, State } from "../state/mod.ts";
+import { Direction, Position } from "../state/mod.ts";
 
 export interface PlaceProps {
   plane: Plane;
@@ -7,7 +7,6 @@ export interface PlaceProps {
   dir: Direction;
 }
 
-export type Place = (props: PlaceProps) => State | undefined;
-
-export const place: Place = ({ plane, pos, dir }) =>
-  isOnPlane({ plane, pos }) ? { pos, dir } : undefined;
+export function place({ plane, pos, dir }: PlaceProps) {
+  return isOnPlane({ plane, pos }) ? { pos, dir } : undefined;
+}
