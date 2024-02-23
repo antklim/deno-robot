@@ -1,5 +1,6 @@
 import { Options, parseArgs } from "./args/mod.ts";
 import { Command, commands, usage } from "./command/mod.ts";
+import { parseFileInput } from "./file-input/mod.ts";
 
 export async function run() {
   const opts: Options = parseArgs(Deno.args);
@@ -12,14 +13,11 @@ export async function run() {
   }
 
   if (opts.file != null) {
-    const file = await Deno.readTextFile(opts.file);
-    const lines = file.split("\n");
+    const input = await parseFileInput(opts.file);
 
-    for (const line of lines) {
-      const [rawName, args] = line.split(" ");
-      const name = rawName.toLowerCase();
-      commands.get(name as Command)?.run(args);
-    }
+    input.forEach(({ command, args }) => {
+      commands.get(command as Command)?.run(args);
+    });
 
     Deno.exit(0);
   }
