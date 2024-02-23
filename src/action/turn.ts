@@ -1,4 +1,5 @@
-import { directions, State } from "../state/mod.ts";
+import { State } from "../state/mod.ts";
+import { directions } from "../world/mod.ts";
 
 export type TurnDirection = "LEFT" | "RIGHT";
 

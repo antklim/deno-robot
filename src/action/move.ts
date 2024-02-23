@@ -1,5 +1,4 @@
-import { isOnPlane, Plane } from "../plane/mod.ts";
-import { Position } from "../state/mod.ts";
+import { isOnPlane, Plane, Position } from "../world/mod.ts";
 import { State } from "../state/mod.ts";
 
 const newPosition = ({ pos: { x, y }, dir }: State): Position => {

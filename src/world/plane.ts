@@ -1,4 +1,4 @@
-import { Position } from "../state/mod.ts";
+import { Position } from "./Position.ts";
 
 export interface Plane {
   x: number;

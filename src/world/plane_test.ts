@@ -1,5 +1,5 @@
 import { assert } from "../../deps.ts";
-import { isOnPlane, type IsOnPlaneProps } from "./mod.ts";
+import { isOnPlane, type IsOnPlaneProps } from "./plane.ts";
 
 const plane = { x: 5, y: 5 };
 
