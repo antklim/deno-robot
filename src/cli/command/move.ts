@@ -1,5 +1,4 @@
-import { action } from "../../action/mod.ts";
-import { get, isPlaced, set } from "../../robot/mod.ts";
+import { action, get, isPlaced, set } from "../../robot/mod.ts";
 import { planeX, planeY } from "../../world/mod.ts";
 
 const run = () => {

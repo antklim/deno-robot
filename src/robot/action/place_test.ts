@@ -1,5 +1,5 @@
-import { assert } from "../../deps.ts";
-import { RobotState } from "../robot/mod.ts";
+import { assert } from "../../../deps.ts";
+import { RobotState } from "../state.ts";
 import { PlaceProps } from "./place.ts";
 import { place } from "./place.ts";
 

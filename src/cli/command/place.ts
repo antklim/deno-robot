@@ -1,6 +1,5 @@
-import { RobotState, set } from "../../robot/mod.ts";
+import { action, RobotState, set } from "../../robot/mod.ts";
 import { Direction, directions, planeX, planeY } from "../../world/mod.ts";
-import { action } from "../../action/mod.ts";
 
 const validate = (
   args: string,

@@ -1,5 +1,4 @@
-import { action, TurnDirection } from "../../action/mod.ts";
-import { get, isPlaced, set } from "../../robot/mod.ts";
+import { action, get, isPlaced, set, TurnDirection } from "../../robot/mod.ts";
 import { Runnable } from "./Runnable.ts";
 
 const turn = (dir: TurnDirection): Runnable => ({

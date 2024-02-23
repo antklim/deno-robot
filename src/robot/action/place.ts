@@ -1,4 +1,4 @@
-import { Direction, isOnPlane, Plane, Position } from "../world/mod.ts";
+import { Direction, isOnPlane, Plane, Position } from "../../world/mod.ts";
 
 export interface PlaceProps {
   plane: Plane;
