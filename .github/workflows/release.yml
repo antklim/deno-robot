@@ -1,0 +1,71 @@
+name: Release
+
+on: workflow_dispatch
+
+permissions:
+  contents: read
+
+env:
+  DENO_DIR: .cache
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Setup repo
+        uses: actions/checkout@v4
+
+      - name: Setup Deno
+        uses: denoland/setup-deno@v1
+        with:
+          deno-version: v1.x
+
+      - name: Cache Deno dependencies
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.DENO_DIR }}
+          key: ${{ hashFiles('lock.json') }}
+
+      - name: Build binaries
+        run: |
+          deno task build:linux
+          deno task build:win
+          deno task build:darwin-x64
+          deno task build:darwin-arm64
+
+      - name: Prepare distribution
+        run: |
+          cd dist
+          for file in *; do tar -cvzf $file.tar.gz $file; done
+          find . -type f -not -name '*.tar.gz' | xargs rm
+
+      - name: Compute checksums
+        run: |
+          cd dist
+          for file in *; do sha256sum $file >> checksums.txt; done
+
+      - name: Archive binaries
+        uses: actions/upload-artifact@v4
+        with:
+          name: outdated-metrics
+          path: dist/
+          retention-days: 7
+
+  release:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Download binaries
+        uses: actions/download-artifact@v4
+        with:
+          name: outdated-metrics
+          path: dist/
+
+      - name: Release
+        run: npx semantic-release --help
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
