@@ -2,9 +2,6 @@ name: Release
 
 on: workflow_dispatch
 
-permissions:
-  contents: read
-
 env:
   DENO_DIR: .cache
 
