@@ -1,4 +1,4 @@
-import { assert } from "../../deps.ts";
+import { assertEquals } from "@std/assert";
 import { isOnPlane, type IsOnPlaneProps } from "./plane.ts";
 
 const plane = { x: 5, y: 5 };
@@ -41,7 +41,7 @@ Deno.test("isOnPlane", () => {
 
   for (const { props, expected } of testCases) {
     const actual = isOnPlane(props);
-    assert.assertEquals(
+    assertEquals(
       actual,
       expected,
       `failed isOnPlane(${JSON.stringify(props)}`,
