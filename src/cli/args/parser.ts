@@ -1,8 +1,8 @@
-import { cli } from "../../../deps.ts";
+import { parseArgs as cliParseArgs } from "@std/cli/parse-args";
 import { Options } from "./Options.ts";
 
 export function parseArgs(args: string[]): Options {
-  return cli.parseArgs(args, {
+  return cliParseArgs(args, {
     boolean: ["help"],
     string: ["file"],
     alias: {

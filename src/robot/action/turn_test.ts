@@ -1,4 +1,4 @@
-import { assert } from "../../../deps.ts";
+import { assertEquals } from "@std/assert";
 import { RobotState } from "../state.ts";
 import { turn } from "./turn.ts";
 
@@ -13,7 +13,7 @@ Deno.test("turns left", () => {
   ];
 
   for (const { state, expected } of testCases) {
-    assert.assertEquals(
+    assertEquals(
       turn({ dir: "LEFT", state }),
       expected,
       `failed turn(${JSON.stringify(state)}`,
@@ -32,7 +32,7 @@ Deno.test("turns right", () => {
   ];
 
   for (const { state, expected } of testCases) {
-    assert.assertEquals(
+    assertEquals(
       turn({ dir: "RIGHT", state }),
       expected,
       `failed turn(${JSON.stringify(state)}`,

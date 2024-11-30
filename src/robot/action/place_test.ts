@@ -1,4 +1,4 @@
-import { assert } from "../../../deps.ts";
+import { assertEquals } from "@std/assert";
 import { RobotState } from "../state.ts";
 import { PlaceProps } from "./place.ts";
 import { place } from "./place.ts";
@@ -14,7 +14,7 @@ Deno.test("place outside the plain returns undefined", () => {
 
   for (const t of testCases) {
     const actual = place({ plane, ...t });
-    assert.assertEquals(
+    assertEquals(
       actual,
       undefined,
       `failed place(${JSON.stringify(t)}`,
@@ -110,7 +110,7 @@ Deno.test("place inside the plain returns new state", () => {
 
   for (const { props, expected } of testCases) {
     const actual = place({ plane, ...props });
-    assert.assertEquals(
+    assertEquals(
       actual,
       expected,
       `failed place(${JSON.stringify(props)}`,

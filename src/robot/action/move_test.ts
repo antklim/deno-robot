@@ -1,4 +1,4 @@
-import { assert } from "../../../deps.ts";
+import { assertEquals } from "@std/assert";
 import { RobotState } from "../state.ts";
 import { move } from "./move.ts";
 
@@ -13,7 +13,7 @@ Deno.test("move off the plane returns undefined", () => {
   ];
 
   for (const t of testCases) {
-    assert.assertEquals(
+    assertEquals(
       move({ plane, state: t }),
       undefined,
       `failed move(${JSON.stringify(t)}`,
@@ -42,7 +42,7 @@ Deno.test("move on the plane returns a new state", () => {
   ];
 
   for (const { state, expected } of testCases) {
-    assert.assertEquals(
+    assertEquals(
       move({ plane, state }),
       expected,
       `failed move(${JSON.stringify(state)}`,
